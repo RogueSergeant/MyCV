@@ -18,7 +18,7 @@
   },
   "keywords": [
   ],
-  "author": "Alfie Roberts <alfie@alfieroberts.me.uk> (https://www.roguesergeant.com/)",
+  "author": "Alfie Roberts <roguesergeant@protonmail.com> (https://www.roguesergeant.co.uk/)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/RogueSergeant/MyCV/issues"
@@ -33,5 +33,5 @@
     "gulp-open": "^3.0.1",
     "sass": "^1.49.9"
   },
-  "homepage": "https://www.roguesergeant.com/MyCV"
+  "homepage": "https://www.roguesergeant.co.uk/MyCV"
 }
