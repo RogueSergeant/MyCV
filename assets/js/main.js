@@ -435,27 +435,25 @@ function exitHandler() {
 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-    if (isMobile) {
-        var oldIframe = document.getElementById('pong_iframe');
+if (isMobile) {
+	var eastereggmobile = document.getElementById('pong_easter_egg_mobile');
+	var eastereggdesktop = document.getElementById('pong_easter_egg')
+	eastereggmobile.style.display = ''
+	eastereggdesktop.style.display = 'none'
+}
 
-        var newIframe = document.createElement('iframe');
-        newIframe.src = oldIframe.src;
-        newIframe.style.position = 'fixed';
-        newIframe.style.top = '0px';
-        newIframe.style.left = '0px';
-        newIframe.style.bottom = '0px';
-        newIframe.style.right = '0px';
-        newIframe.style.width = '100%';
-        newIframe.style.height = '100%';
-        newIframe.style.border = 'none';
-        newIframe.style.margin = '0';
-        newIframe.style.padding = '0';
-        newIframe.style.overflow = 'hidden';
-        newIframe.style.zIndex = '999999';
+document.getElementById('pong_easter_egg_mobile').addEventListener('click', function() {
+    var iframe = document.getElementById('mobile_pong_iframe');
+    var closebutton = document.getElementById('close-button');
+	iframe.style.display = '';
+	closebutton.style.display = ''
+  });
 
-        var article = document.getElementById('PONG');
-        article.style.textAlign = 'center'; // center the button
-
-        article.insertBefore(newIframe, oldIframe.nextSibling);
-        article.removeChild(oldIframe);
-    }
+document.getElementById('close-button').addEventListener('click', function () {
+	var iframe = document.getElementById('mobile_pong_iframe');
+	var closebutton = document.getElementById('close-button');
+	iframe.style.display = 'none';
+	closebutton.style.display = 'none';
+	iframe.src = iframe.src;
+	window.history.back();
+});
