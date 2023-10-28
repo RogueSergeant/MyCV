@@ -405,3 +405,30 @@
 					});
 
 })(jQuery);
+
+function openFullscreen() {
+	var elem = document.getElementById("pong_iframe");
+	if (elem.requestFullscreen) {
+		elem.requestFullscreen();
+	} else if (elem.mozRequestFullScreen) { /* Firefox */
+		elem.mozRequestFullScreen();
+	} else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+		elem.webkitRequestFullscreen();
+	} else if (elem.msRequestFullscreen) { /* IE/Edge */
+		elem.msRequestFullscreen();
+	}
+	var iframe = document.getElementById("pong_iframe");
+	iframe.src = iframe.src;
+}
+
+document.addEventListener('fullscreenchange', exitHandler);
+document.addEventListener('webkitfullscreenchange', exitHandler);
+document.addEventListener('mozfullscreenchange', exitHandler);
+document.addEventListener('MSFullscreenChange', exitHandler);
+
+function exitHandler() {
+	if (!document.fullscreenElement && !document.webkitIsFullScreen && !document.mozFullScreen && !document.msFullscreenElement) {
+		var iframe = document.getElementById("pong_iframe");
+		iframe.src = iframe.src;
+	}
+}
