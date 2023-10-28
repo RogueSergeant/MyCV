@@ -264,6 +264,12 @@
 							$footer.show();
 							$header.show();
 
+						// Refresh the iframe
+							var iframe = document.getElementById('pong_iframe');
+							if (iframe) {
+								iframe.src = iframe.src;
+							}
+
 						// Unmark as visible.
 							setTimeout(function() {
 
