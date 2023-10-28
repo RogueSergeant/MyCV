@@ -435,18 +435,27 @@ function exitHandler() {
 
 var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
-if (isMobile) {
-	var iframe = document.getElementById('pong_iframe');
-	iframe.style.position = 'fixed';
-	iframe.style.top = '0px';
-	iframe.style.left = '0px';
-	iframe.style.bottom = '0px';
-	iframe.style.right = '0px';
-	iframe.style.width = '100%';
-	iframe.style.height = '100%';
-	iframe.style.border = 'none';
-	iframe.style.margin = '0';
-	iframe.style.padding = '0';
-	iframe.style.overflow = 'hidden';
-	iframe.style.zIndex = '999999';
-}
+    if (isMobile) {
+        var oldIframe = document.getElementById('pong_iframe');
+
+        var newIframe = document.createElement('iframe');
+        newIframe.src = oldIframe.src;
+        newIframe.style.position = 'fixed';
+        newIframe.style.top = '0px';
+        newIframe.style.left = '0px';
+        newIframe.style.bottom = '0px';
+        newIframe.style.right = '0px';
+        newIframe.style.width = '100%';
+        newIframe.style.height = '100%';
+        newIframe.style.border = 'none';
+        newIframe.style.margin = '0';
+        newIframe.style.padding = '0';
+        newIframe.style.overflow = 'hidden';
+        newIframe.style.zIndex = '999999';
+
+        var article = document.getElementById('PONG');
+        article.style.textAlign = 'center'; // center the button
+
+        article.insertBefore(newIframe, oldIframe.nextSibling);
+        article.removeChild(oldIframe);
+    }
