@@ -443,16 +443,17 @@ if (isMobile) {
 }
 
 document.getElementById('pong_easter_egg_mobile').addEventListener('click', function() {
-    var iframe = document.getElementById('mobile_pong_iframe');
+    var iframe = document.getElementById('mobile_pong_iframe_container');
     var closebutton = document.getElementById('close-button');
 	iframe.style.display = '';
 	closebutton.style.display = ''
   });
 
 document.getElementById('close-button').addEventListener('click', function () {
+	var iframe_container = document.getElementById('mobile_pong_iframe_container');
 	var iframe = document.getElementById('mobile_pong_iframe');
 	var closebutton = document.getElementById('close-button');
-	iframe.style.display = 'none';
+	iframe_container.style.display = 'none';
 	closebutton.style.display = 'none';
 	iframe.src = iframe.src;
 	window.history.back();
